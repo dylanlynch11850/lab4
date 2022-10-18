@@ -2,9 +2,13 @@ import React from "react";
 
 export class Create extends React.Component {
 
-    
+    //parent consgtructor with super
     constructor() {
         super();
+        
+        //this is where the handle submit is bind too 
+        //binding to this instance of the event
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChangedBookTitle = this.onChangedBookTitle.bind(this);
         this.onChangedBookCover = this.onChangedBookCover.bind(this);
@@ -16,6 +20,10 @@ export class Create extends React.Component {
             author: ''
         }
     }
+    
+    //handle submits binds to above or it will not fire
+    //event is present below, how we pull data out of the controll 
+    
     handleSubmit(e){
         e.preventDefault();
         console.log(`Button clicked
@@ -52,12 +60,17 @@ export class Create extends React.Component {
         return (
             <div>
                 <h3> Hello From my Create component</h3>
+            
+            //submit form here
+            
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Add Book Title: </label>
                         <input type="text"
                             className="form-control"
                             value={this.state.title}
+//will update the state to the new value 
+
                             onChange={this.onChangedBookTitle}
                         />
                         </div>
@@ -68,6 +81,7 @@ export class Create extends React.Component {
                             className="form-control"
                             value={this.state.cover}
                             onChange={this.onChangedBookCover}
+//will update the state to the new value 
                         />
                     </div>
 
@@ -77,6 +91,7 @@ export class Create extends React.Component {
                             className="form-control"
                             value={this.state.author}
                             onChange={this.onChangedBookAuthor}
+//will update the state to the new value 
                         />
                     </div>
 
