@@ -10,6 +10,8 @@ export class Read extends React.Component {
     componentDidMount() {
         
         //url we are going too 
+        //there is a fall back option available here also 
+        
         axios.get('https://jsonblob.com/api/jsonblob/1027219693823606784')
             .then((response) => {
                 this.setState({ books: response.data })
