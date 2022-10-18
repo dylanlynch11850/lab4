@@ -6,7 +6,10 @@ import axios from "axios";
 export class Read extends React.Component {
 
     //Life Cycle hook element 
+    //gets fired when component is drawn
     componentDidMount() {
+        
+        //url we are going too 
         axios.get('https://jsonblob.com/api/jsonblob/1027219693823606784')
             .then((response) => {
                 this.setState({ books: response.data })
@@ -25,6 +28,7 @@ export class Read extends React.Component {
 
     state = {
         //Creating Arrays Called Book
+        //empty array in json
         books: [
 
         ]
@@ -35,6 +39,8 @@ export class Read extends React.Component {
         return (
             <div>
                 <h3>Hello From my read Component</h3>
+            //HTML Component
+            
                 <Books books={this.state.books}></Books>
             </div>
         )
